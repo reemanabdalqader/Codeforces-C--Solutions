@@ -35,3 +35,30 @@ cout << ans << endl ;
 return 0;
 
 }
+// anther solution 
+#include <iostream>
+#include <map>
+#include <cmath>
+#include <vector>
+#include <unordered_map>
+#include <bits/stdc++.h>
+#include <queue>
+#include <algorithm>
+using namespace std;
+#define ll long long
+int main() {
+ios::sync_with_stdio(false);
+cin.tie(nullptr); 
+int t ;
+cin >> t ;
+while (t--){
+    ll c , sum ;
+    cin >> c >> sum ;
+    ll q = sum /c ;
+    ll x =sum %c ;
+    ll ans = pow (q+1,2)*x + pow (q,2)*(c-x);
+    cout << ans << endl ;
+}
+return 0;
+
+}
