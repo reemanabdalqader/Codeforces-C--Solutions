@@ -1,0 +1,50 @@
+//https://codeforces.com/problemset/problem/17/A
+#include <iostream>
+#include <map>
+#include <cmath>
+#include <vector>
+#include <unordered_map>
+#include <bits/stdc++.h>
+#include <queue>
+#include <algorithm>
+using namespace std;
+#define ll long long
+
+int main() {
+ios::sync_with_stdio(false);
+cin.tie(nullptr); 
+ll max ,k;
+cin >> max >> k ;
+vector <bool> prime (max+1 ,true );
+prime [0]=false ;
+prime [1]= false ;
+for (int i=2;i*i<max ;i++){
+if (prime [i]){
+  for (int j=i*i ;j<=max ;j+=i){
+    prime [j]=false ;
+  }
+}
+}
+int res =0; 
+bool stop =false ;
+ for (int i=2;i<max;i++){
+  if (prime [i]==true ){
+    int count =i+1;
+
+    while (!prime [count]&& count <= max)count ++;
+if (prime[count]){
+  int ans =count +1+i;
+  if (ans<=max && prime [ans])res++ ;
+}
+  
+  if (res>=k){
+   stop =true ;
+  }
+  }
+ }
+ if (k==0 || stop )
+  cout <<"YES";
+  else 
+ cout <<"NO";
+ return 0;
+  }
